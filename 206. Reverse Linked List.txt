@@ -1,0 +1,22 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # ListNoden所代表的意義是 val 與 之後的鍊結的位置
+        # 以head來說表示的是val=1與之後的鍊2...的位置
+        # 如果直接將head的鍊改成none那就會失去鍊2後的位置
+        #使用next暫存head nxet的位置(鍊2後的位置)  pre轉至後的鍊的連結 
+        prev = None
+        time=0
+        while head:
+            next = head.next
+            head.next = prev
+            prev = head
+            head = next
+        return prev
+        
+        
+        
